@@ -7,6 +7,8 @@ export const ConfigModuleForRoot = ConfigModule.forRoot({
       .valid('development', 'production', 'test', 'provision')
       .default('development'),
     PORT: Joi.number().default(5000),
+    POSTGRES_PASSWORD: Joi.string().required(),
+    POSTGRES_USER: Joi.string().required(),
   }),
   validationOptions: {
     allowUnknown: false,
