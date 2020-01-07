@@ -1,4 +1,4 @@
-.PHONY: default install run
+.PHONY: default install run start_postgres
 .DEFAULT: default
 
 default:
@@ -9,3 +9,10 @@ install:
 
 run:
 	lerna run start:dev --stream
+
+start_postgres:
+	docker-compose  -f ./packages/server/docker-compose.yaml up -d
+
+stop_postgres:
+	docker-compose  -f ./packages/server/docker-compose.yaml down
+
