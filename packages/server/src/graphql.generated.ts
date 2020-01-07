@@ -6,10 +6,10 @@
 
 /* tslint:disable */
 export abstract class IQuery {
-    abstract me(): User | Promise<User>;
+    abstract userlist(limit?: number, offset?: number): User[] | Promise<User[]>;
 }
 
 export class User {
     id?: string;
-    name?: string;
+    username?: string;
 }
