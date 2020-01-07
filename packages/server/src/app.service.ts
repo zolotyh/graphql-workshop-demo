@@ -1,12 +1,12 @@
 import {Injectable} from '@nestjs/common';
-import {ConfigService} from '@nestjs/config';
+import { UserService } from './database/user/user.service';
 
 @Injectable()
 export class AppService {
-  constructor(private configService: ConfigService) {}
+  constructor(
+      private userService: UserService) {}
 
-  getHello(): string {
-    const config = this.configService.get('NODE_ENV');
-    return `Hello World! ${config}`;
+  async getHello() {
+    return this.userService.findAll();
   }
 }
