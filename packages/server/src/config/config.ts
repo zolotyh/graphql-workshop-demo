@@ -6,7 +6,7 @@ export const ConfigModuleForRoot = ConfigModule.forRoot({
     NODE_ENV: Joi.string()
       .valid('development', 'production', 'test', 'provision')
       .default('development'),
-    PORT: Joi.number().default(3000),
+    PORT: Joi.number().default(5000),
   }),
   validationOptions: {
     allowUnknown: false,

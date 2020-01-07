@@ -1,4 +1,4 @@
-.PHONY: default install
+.PHONY: default install run
 .DEFAULT: default
 
 default:
@@ -7,3 +7,5 @@ default:
 install:
 	lerna clean && lerna link && lerna bootstrap
 
+run:
+	lerna run start:dev --stream
