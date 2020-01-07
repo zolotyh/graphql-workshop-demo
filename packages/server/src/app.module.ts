@@ -4,11 +4,13 @@ import {AppService} from './app.service';
 import {GraphQLModuleForRoot, ConfigModuleForRoot} from 'src/config';
 import {DatabaseModule} from './database/database.module';
 import {UserModule} from './database/user/user.module';
+import {TypeOrmModule} from '@nestjs/typeorm';
 
 @Module({
   imports: [
     GraphQLModuleForRoot,
     ConfigModuleForRoot,
+    TypeOrmModule.forRoot(),
     DatabaseModule,
     UserModule,
   ],
