@@ -15,4 +15,3 @@ start_postgres:
 
 stop_postgres:
 	docker-compose  -f ./packages/server/docker-compose.yaml down
-
