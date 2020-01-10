@@ -11,7 +11,7 @@ run:
 	lerna run start:dev --stream
 
 start_postgres:
-	docker-compose  -f ./packages/server/docker-compose.yaml up -d
+	docker-compose  -f ./apps/server/docker-compose.yaml up -d
 
 stop_postgres:
-	docker-compose  -f ./packages/server/docker-compose.yaml down
+	docker-compose  -f ./apps/server/docker-compose.yaml down
