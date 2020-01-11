@@ -9,7 +9,7 @@ export const ConfigModuleForRoot = ConfigModule.forRoot({
     PORT: Joi.number().default(3000),
   }),
   validationOptions: {
-    allowUnknown: false,
+    allowUnknown: true,
     abortEarly: true,
   },
 });

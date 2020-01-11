@@ -2,10 +2,10 @@
 .DEFAULT: default
 
 default:
-	lerna run start:dev
+	lerna run start:dev --stream
 
-install:
-	lerna clean && lerna link && lerna bootstrap
+reinstall:
+	lerna clean -y && lerna link && lerna bootstrap
 
 run:
 	lerna run start:dev --stream
