@@ -1,6 +1,5 @@
-import {GraphQLModule} from '@nestjs/graphql';
+import { GraphQLModule } from '@nestjs/graphql';
 import * as path from 'path';
-
 
 export const GraphQLModuleForRoot = GraphQLModule.forRoot({
   debug: true,
