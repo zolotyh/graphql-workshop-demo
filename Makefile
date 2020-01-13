@@ -1,14 +1,15 @@
-.PHONY: default install run start_postgres
+.PHONY: default install run start_postgres stop_postgres quick
 .DEFAULT: default
 
-default:
-	lerna run start:dev
+default: quick
 
-install:
-	lerna clean && lerna link && lerna bootstrap
-
-run:
+quick:
 	lerna run start:dev --stream
+
+full: reinstall | quick
+
+reinstall:
+	lerna clean -y && lerna link && lerna bootstrap
 
 start_postgres:
 	docker-compose  -f ./apps/server/docker-compose.yaml up -d
