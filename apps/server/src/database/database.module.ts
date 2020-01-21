@@ -5,6 +5,9 @@ import { ConnectionOptionsReader } from 'typeorm';
 import { UserModule } from './user/user.module';
 import { ArticleModule } from './article/article.module';
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { DatabaseService } from './database.service';
+import { Article } from './article/article.entity';
+import { User } from './user/user.entity';
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
@@ -30,7 +33,13 @@ const TypeOrmModuleForRoot = TypeOrmModule.forRootAsync({
 });
 
 @Module({
-  imports: [TypeOrmModuleForRoot, UserModule, ArticleModule],
-  exports: [UserModule, ArticleModule],
+  imports: [
+    TypeOrmModuleForRoot,
+    TypeOrmModule.forFeature([User, Article]),
+    UserModule,
+    ArticleModule,
+  ],
+  providers: [DatabaseService],
+  exports: [UserModule, ArticleModule, DatabaseService],
 })
 export class DatabaseModule {}
