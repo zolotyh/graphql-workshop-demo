@@ -19,10 +19,12 @@
     "typescript": "3.7.4"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=10.0.0"
   },
   "scripts": {
-    "lint": "lerna run lint --stream --no-bail"
+    "lint": "lerna run lint --stream --no-bail",
+    "start:docker": "docker-compose  -f ./apps/server/docker-compose.yaml up",
+    "start:server": "cd apps/server && yarn start:dev"
   },
   "workspaces": {
     "packages": [
