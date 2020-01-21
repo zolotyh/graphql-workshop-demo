@@ -6,7 +6,17 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello() {
-    return this.appService.getHello();
+  index() {
+    return this.appService.getUsers();
+  }
+
+  @Get('/users')
+  getUsers() {
+    return this.appService.getUsers();
+  }
+
+  @Get('/articles')
+  getArticles() {
+    return this.appService.getArticles();
   }
 }
