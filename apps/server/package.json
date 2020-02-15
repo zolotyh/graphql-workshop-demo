@@ -24,7 +24,7 @@
       "migration:revert": "npm run typeorm migration:revert"
    },
    "dependencies": {
-      "@hapi/joi": "^17.0.0",
+      "@hapi/joi": "^16.0.0",
       "@nestjs/common": "^6.10.14",
       "@nestjs/config": "^0.0.8",
       "@nestjs/core": "^6.10.14",
@@ -39,6 +39,7 @@
       "reflect-metadata": "^0.1.10",
       "rimraf": "^3.0.0",
       "rxjs": "^6.5.3",
+      "type-graphql": "^0.17.6",
       "typeorm": "0.2.22"
    },
    "devDependencies": {
@@ -52,7 +53,7 @@
       "tsconfig-paths": "^3.9.0"
    },
    "engines": {
-      "node": ">=12.0.0"
+      "node": ">=10.0.0"
    },
    "jest": {
       "moduleFileExtensions": [
