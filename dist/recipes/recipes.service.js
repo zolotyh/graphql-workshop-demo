@@ -21,10 +21,10 @@ let RecipesService = class RecipesService {
         this.usersRepository = usersRepository;
     }
     async create(data) {
-        return {};
+        return this.usersRepository.create(data);
     }
     async findOneById(id) {
-        return {};
+        return this.usersRepository.findOne(id);
     }
     async findAll(recipesArgs) {
         return this.usersRepository.find();

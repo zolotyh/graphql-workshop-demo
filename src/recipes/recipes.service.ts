@@ -16,11 +16,11 @@ export class RecipesService {
     constructor( @InjectRepository(Recipe) private readonly usersRepository: Repository<Recipe>,) {}
 
   async create(data: NewRecipeInput): Promise<Recipe> {
-    return {} as any;
+    return this.usersRepository.create(data);
   }
 
   async findOneById(id: string): Promise<Recipe> {
-    return {} as any;
+    return this.usersRepository.findOne(id);
   }
 
   async findAll(recipesArgs: RecipesArgs): Promise<Recipe[]> {
