@@ -2,6 +2,7 @@
 
 Steps to run this project:
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+0. `npm i`
+1. `docker-compose up`
+2. `typeorm migration:run`
+3. `npm run start:dev`
