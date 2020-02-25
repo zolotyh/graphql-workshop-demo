@@ -2,6 +2,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 // import * as path from 'path';
 
 export const GraphQLModuleForRoot = GraphQLModule.forRoot({
+    installSubscriptionHandlers: true,
   // 🥇 code-first approach
   autoSchemaFile: 'schema.graphql',
   // buildSchemaOptions: {
