@@ -3,11 +3,6 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type Article {
-  id: Float!
-  title: String!
-}
-
 """Date custom scalar type"""
 scalar Date
 
@@ -27,11 +22,18 @@ type Query {
   recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
 }
 
+type Rate {
+  value: Int!
+  user: User!
+  date: Date!
+}
+
 type Recipe {
   id: ID!
   title: String!
   description: String
-  creationDate: Date!
+  ratings: [Rate!]!
+  author: User!
 }
 
 type Subscription {
@@ -39,8 +41,8 @@ type Subscription {
 }
 
 type User {
-  id: Float!
-  username: String!
-  createdAt: Date!
-  updatedAt: Date!
+  id: ID!
+  email: String!
+  nickname: String
+  recipes: [Recipe!]!
 }

@@ -10,6 +10,7 @@ module.exports = {
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/db/migrations/**/*{.ts,.js}'],
   subscribers: ['dist/db/subscribers/**/*{.ts,.js}'],
+  synchronize: true,
   cli: {
     entitiesDir: 'src',
     migrationsDir: 'src/db/migrations',

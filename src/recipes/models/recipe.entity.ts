@@ -1,12 +1,15 @@
 import { Field, ID, ObjectType } from 'type-graphql';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {User} from './user.entity';
+import {Lazy} from '../types/lazy';
+import {Rate} from 'src/recipes/models/rate.entity';
 
 @Entity()
 @ObjectType()
 export class Recipe {
-  @Field(() => ID)
+  @Field(type => ID)
   @PrimaryGeneratedColumn()
-  id: number;
+  readonly id: number;
 
   @Field()
   @Column()
@@ -16,7 +19,11 @@ export class Recipe {
   @Column({ nullable: true })
   description?: string;
 
-  @Field()
-  @Column({ nullable: true })
-  creationDate: Date;
+  @Field(type => [Rate])
+  @OneToMany(type => Rate, rate => rate.recipe, { lazy: true, cascade: ["insert"] })
+  ratings: Lazy<Rate[]>;
+
+  @Field(type => User)
+  @ManyToOne(type => User, { lazy: true })
+  author: Lazy<User>;
 }
