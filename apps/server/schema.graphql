@@ -3,28 +3,32 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type Article {
-  id: Float
-  title: String
-}
-
-"""
-The javascript `Date` as string. Type represents date and time as the ISO Date string.
-"""
-scalar DateTime
+"""Date custom scalar type"""
+scalar Date
 
 type Mutation {
-  userCreate(name: String!): User
+  addRecipe(newRecipeData: NewRecipeInput!): Recipe!
+  removeRecipe(id: String!): Boolean!
+}
+
+input NewRecipeInput {
+  title: String!
+  description: String
+  ingredients: [String!]!
 }
 
 type Query {
-  user(id: Int): User
-  userList: [User]
+  recipe(id: String!): Recipe!
+  recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
 }
 
-type User {
-  id: Float
-  username: String!
-  createdAt: DateTime!
-  updatedAt: DateTime
+type Recipe {
+  id: ID!
+  title: String!
+  description: String
+  creationDate: Date!
+}
+
+type Subscription {
+  recipeAdded: Recipe!
 }
