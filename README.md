@@ -6,3 +6,6 @@ Steps to run this project:
 1. `docker-compose up`
 2. `typeorm migration:run`
 3. `npm run start:dev`
+
+Open localhost:5601 for tracing
+
