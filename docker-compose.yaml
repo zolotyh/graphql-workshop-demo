@@ -130,17 +130,17 @@ services:
       allow_es_settings_modification: "true"
     networks:
         - elastic
-  nginx:
-    image: nginx:latest
-    ports:
-        - 8081:80
-    volumes:
-        - ${PWD}/nginx-config/:/etc/nginx/conf.d/
-    command: /bin/bash -c "nginx -g 'daemon off;'"
-    ulimits:
-      nproc: 65535
-    networks:
-      - ingress
+  # nginx:
+    # image: nginx:latest
+    # ports:
+        # - 8081:80
+    # volumes:
+        # - ${PWD}/nginx-config/:/etc/nginx/conf.d/
+    # command: /bin/bash -c "nginx -g 'daemon off;'"
+    # ulimits:
+      # nproc: 65535
+    # networks:
+      # - ingress
 volumes:
   esdata1:
   logs:
@@ -148,15 +148,3 @@ volumes:
 networks:
   elastic:
   ingress:
-
-# configs:
-#   auditbeat_config:
-#     file: configs/auditbeat.docker.yml
-#   filebeat_config:
-#     file: configs/filebeat.docker.yml
-#   heartbeat_config:
-#     file: configs/heartbeat.docker.yml
-#   metricbeat_config:
-#     file: configs/metricbeat.docker.yml
-#   packetbeat_config:
-#     file: configs/packetbeat.docker.yml
