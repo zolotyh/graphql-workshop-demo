@@ -5,11 +5,19 @@ import { GraphQLModuleForRoot, ConfigModuleForRoot } from 'src/config';
 import { RecipesModule } from './recipes/recipes.module';
 import {TypeOrmModule, TypeOrmModuleOptions} from '@nestjs/typeorm';
 import ormconfig from '../ormconfig';
+import { TracerService } from './tracer/tracer.service';
 
 
 @Module({
-  imports: [GraphQLModuleForRoot, ConfigModuleForRoot, RecipesModule, TypeOrmModule.forRoot(ormconfig as TypeOrmModuleOptions)],
+  imports: [
+      GraphQLModuleForRoot,
+      ConfigModuleForRoot,
+      RecipesModule,
+      TypeOrmModule.forRoot(ormconfig as TypeOrmModuleOptions)],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+      AppService,
+      TracerService,
+  ],
 })
 export class AppModule {}

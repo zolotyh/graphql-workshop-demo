@@ -1,6 +1,13 @@
-const apm = require('elastic-apm-node').start({
+
+const agent = require('elastic-apm-node').start({
   serviceName: 'graphql-nest',
 })
+
+
+import Tracer from 'elastic-apm-node-opentracing';
+
+global['tracer'] = new Tracer(agent)
+global['agent'] = agent
 
 
 import { NestFactory } from '@nestjs/core';
