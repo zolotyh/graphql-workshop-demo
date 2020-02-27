@@ -23,6 +23,6 @@ export class User {
   password: string;
 
   @OneToMany(type => Recipe, recipe => recipe.author, { lazy: true })
-  @Field(type => [Recipe])
+  @Field(() => [Recipe])
   recipes: Lazy<Recipe[]>;
 }
