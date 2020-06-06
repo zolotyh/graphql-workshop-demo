@@ -30,7 +30,7 @@
       "@nestjs/graphql": "^6.5.3",
       "@nestjs/platform-express": "^6.7.2",
       "@nestjs/typeorm": "^6.3.3",
-      "apollo-server-express": "^2.9.15",
+      "apollo-server-express": "^2.14.2",
       "elastic-apm-node": "^3.4.0",
       "elastic-apm-node-opentracing": "^2.0.0",
       "graphql": "^14.5.8",
